@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zrnká radosti – folklórna skupina</title>
+<meta name="description" content="Folklórna skupina Zrnká radosti: vystúpenia, fotky a kontakt.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#050505; --ink:#f2efe8; --muted:#a9a49a; --line:#2a2a28; --accent:#2fe08a;
+  --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{color-scheme:dark;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--mono);font-weight:300;font-size:15px;line-height:1.7}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+img{max-width:100%;display:block}
+[hidden]{display:none!important}
+
+/* hlavička */
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;padding:28px 5vw}
+.top.over{position:absolute;inset:0 0 auto 0;z-index:5}
+.top.solid{border-bottom:1px solid var(--line)}
+.brand h1{font-family:var(--display);font-weight:300;font-size:clamp(34px,5vw,56px);line-height:1;letter-spacing:.02em;text-transform:uppercase}
+.brand p{font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin:6px 0 0 24%}
+nav ul{list-style:none;display:flex;gap:22px;flex-wrap:wrap;justify-content:flex-end}
+nav a{font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:4px 0;border-bottom:1px solid transparent}
+nav a:hover,nav a[aria-current]{border-color:var(--ink)}
+
+/* fotky; ak súbor chýba, ostane tmavá plocha */
+.ph{background:#171612 center/cover no-repeat}
+
+/* úvodná fotka na celú obrazovku */
+.hero{position:relative;height:100vh;height:100svh;min-height:420px}
+.hero .ph{position:absolute;inset:0;background-image:linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,0) 30%,rgba(0,0,0,0) 70%,rgba(0,0,0,.55)),url(img/hero.jpeg);background-position:center 30%}
+.cue{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);z-index:5;font-size:12px;letter-spacing:.14em;text-transform:uppercase;text-align:center}
+.cue::after{content:"";display:block;width:1px;height:36px;background:var(--ink);margin:10px auto 0}
+
+section{padding:96px 5vw}
+h2{font-family:var(--display);font-weight:300;font-size:clamp(28px,3.4vw,40px);letter-spacing:.04em;text-transform:uppercase;text-align:center;margin-bottom:56px}
+.more{text-align:center;margin-top:56px}
+.more a,.btn{font-size:12px;letter-spacing:.12em;text-transform:uppercase;border-bottom:1px solid var(--ink);padding-bottom:3px}
+
+/* karty */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:36px;max-width:1000px;margin:0 auto}
+.card{display:block;text-align:center}
+.card .ph{aspect-ratio:3/4;transition:filter .3s}
+.card:hover .ph{filter:brightness(1.15)}
+.card h3{font-family:var(--display);font-weight:300;font-size:22px;letter-spacing:.03em;margin-top:14px;line-height:1.2}
+.card small{display:block;color:var(--muted);font-size:12px}
+
+/* O nás */
+.about{display:grid;grid-template-columns:minmax(260px,1fr) minmax(280px,480px);gap:6vw;align-items:center;max-width:1100px;margin:0 auto}
+.about .ph{aspect-ratio:1;border-radius:50%;background-image:url(img/o-nas.jpg)}
+.about p{color:var(--muted);margin-bottom:1em;max-width:60ch}
+.about h2{text-align:left;margin-bottom:28px}
+
+/* zoznam všetkých vystúpení */
+.page{max-width:900px;margin:0 auto;padding:72px 5vw 96px}
+.page h2{margin-bottom:12px}
+.lead{text-align:center;color:var(--muted);margin-bottom:56px}
+.row{display:grid;grid-template-columns:200px 1fr;gap:28px;padding:28px 0;border-top:1px solid var(--line);align-items:start}
+.row:last-child{border-bottom:1px solid var(--line)}
+.row .ph{aspect-ratio:4/3;transition:filter .3s}
+.row:hover .ph{filter:brightness(1.15)}
+.row time{color:var(--muted);font-size:12px}
+.row h3{font-family:var(--display);font-weight:300;font-size:30px;line-height:1.1;margin:4px 0 8px}
+.row p{color:var(--muted);max-width:56ch}
+
+/* detail vystúpenia */
+.post{max-width:760px;margin:0 auto;padding:56px 5vw 96px}
+.post h1{font-family:var(--display);font-weight:300;font-size:clamp(40px,6vw,68px);line-height:1.05;margin:32px 0 8px}
+.post time{color:var(--muted);font-size:12px}
+.post .cover{aspect-ratio:16/10;margin:32px 0}
+.post .txt p{margin-bottom:1.2em}
+.post h2{text-align:left;margin:64px 0 24px;font-size:28px}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.gallery button{border:0;padding:0;background:none;cursor:zoom-in;aspect-ratio:4/3;overflow:hidden}
+.gallery img{width:100%;height:100%;object-fit:cover;transition:transform .35s}
+.gallery button:hover img{transform:scale(1.04)}
+.back{font-size:12px;letter-spacing:.12em;text-transform:uppercase;border-bottom:1px solid var(--line)}
+
+/* zväčšená fotka */
+#lb{position:fixed;inset:0;background:rgba(0,0,0,.94);z-index:50;display:flex;align-items:center;justify-content:center}
+#lb img{max-width:92vw;max-height:84vh;object-fit:contain}
+#lb button{position:absolute;background:none;border:0;color:var(--ink);font:inherit;font-size:13px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;padding:16px}
+#lb .x{top:8px;right:12px}#lb .p{left:8px;top:50%}#lb .n{right:8px;top:50%}
+#lb .c{bottom:12px;left:50%;transform:translateX(-50%);color:var(--muted);cursor:default}
+
+/* stránka O nás */
+.onas-intro{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(240px,1fr);gap:6vw;align-items:center;max-width:1100px;margin:0 auto;padding:88px 5vw 56px}
+.onas-intro h1{font-family:var(--display);font-weight:300;font-size:clamp(48px,8vw,104px);line-height:.95;letter-spacing:.01em;text-transform:uppercase;margin-bottom:28px}
+.onas-intro p{color:var(--muted);max-width:52ch}
+.onas-intro .ph{aspect-ratio:1;border-radius:50%;background-image:url(img/o-nas.jpg)}
+.onas-story{max-width:680px;margin:0 auto;padding:56px 5vw 72px}
+.onas-story p{margin-bottom:1.3em}
+.onas-story p:first-child::first-line{font-family:var(--display);font-size:1.5em;letter-spacing:.02em}
+.robime{max-width:1000px;margin:0 auto;padding:0 5vw 96px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:36px}
+.robime div{border-top:1px solid var(--ink);padding-top:18px}
+.robime h3{font-family:var(--display);font-weight:300;font-size:28px;margin-bottom:8px}
+.robime p{color:var(--muted)}
+.pridaj{text-align:center;padding:96px 5vw;border-top:1px solid var(--line)}
+.pridaj h2{margin-bottom:16px}
+.pridaj p{color:var(--muted);max-width:46ch;margin:0 auto 32px}
+.teaser p{color:var(--muted);margin-bottom:1.4em;max-width:60ch}
+
+/* kontakt */
+.kontakt{border-top:1px solid var(--line);padding:104px 5vw 40px}
+.k-wrap{max-width:1050px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:7vw;align-items:start}
+.kontakt h2{text-align:left;font-size:clamp(44px,7vw,88px);line-height:.95;margin-bottom:28px}
+.k-lead{color:var(--muted);max-width:40ch;margin-bottom:36px}
+.k-label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.k-mail{display:inline-block;font-family:var(--display);font-weight:300;font-size:clamp(28px,3.6vw,44px);line-height:1.1;border-bottom:1px solid var(--ink);word-break:break-all}
+.k-mail:hover{color:var(--accent);border-color:var(--accent)}
+.k-copy{background:none;border:0;color:var(--muted);font:inherit;font-size:12px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;margin-left:14px}
+.k-copy:hover{color:var(--ink)}
+.k-soc{margin-top:36px}
+.k-soc p{font-size:15px}
+.k-form{display:grid;gap:26px}
+.k-form label{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.k-form input,.k-form textarea{width:100%;background:transparent;border:0;border-bottom:1px solid var(--line);color:var(--ink);font:inherit;font-size:16px;padding:10px 0;margin-top:4px;border-radius:0;transition:border-color .2s}
+.k-form textarea{min-height:130px;resize:vertical}
+.k-form input:focus,.k-form textarea:focus{outline:0;border-color:var(--accent)}
+.k-send{justify-self:start;background:none;border:1px solid var(--ink);color:var(--ink);font:inherit;font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:14px 30px;cursor:pointer;transition:background .2s,color .2s}
+.k-send:hover{background:var(--ink);color:var(--bg)}
+.k-note{font-size:12px;color:var(--muted)}
+.k-bottom{max-width:1050px;margin:88px auto 0;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+
+@media (max-width:760px){
+  .top{flex-direction:column}
+  nav ul{justify-content:flex-start;gap:16px}
+  .about,.onas-intro,.k-wrap{grid-template-columns:1fr}
+  .onas-intro .ph{max-width:360px}
+  .row{grid-template-columns:1fr;gap:14px}
+  section{padding:72px 6vw}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<div id="view"></div>
+
+<footer class="kontakt" id="kontakt">
+  <div class="k-wrap">
+    <div>
+      <h2>Napíšte nám</h2>
+      <p class="k-lead">Chcete nás pozvať na vystúpenie, alebo sa k nám pridať? Ozvite sa, radi odpovieme.</p>
+      <p class="k-label">E-mail</p>
+      <a class="k-mail" href="mailto:zrnkaradosti@proton.me">zrnkaradosti@proton.me</a><button class="k-copy" id="copy" type="button">Kopírovať</button>
+      <div class="k-soc">
+        <p class="k-label">Sociálne siete</p>
+        <p>@zrnkaradosti</p>
+      </div>
+    </div>
+    <form class="k-form" id="kform">
+      <label>Vaše meno<input name="meno" autocomplete="name" required></label>
+      <label>Správa<textarea name="sprava" required placeholder="Napríklad: radi by sme vás pozvali na naše podujatie…"></textarea></label>
+      <button class="k-send" type="submit">Pripraviť e-mail</button>
+      <p class="k-note">Otvorí sa váš e-mailový program s hotovou správou, stačí ju odoslať.</p>
+    </form>
+  </div>
+  <div class="k-bottom"><span>© Zrnká radosti</span><span>Folklórna skupina</span></div>
+</footer>
+
+<div id="lb" hidden role="dialog" aria-label="Fotka">
+  <button class="x" aria-label="Zavrieť">Zavrieť</button>
+  <button class="p" aria-label="Predošlá">Späť</button>
+  <img alt="">
+  <button class="n" aria-label="Ďalšia">Ďalej</button>
+  <button class="c" tabindex="-1"></button>
+</div>
+
+<script src="vystupenia.js"></script>
+<script src="onas.js"></script>
+<script>
+const view = document.getElementById("view");
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fmt = d => new Date(d).toLocaleDateString("sk-SK",{day:"numeric",month:"long",year:"numeric"});
+const sorted = [...VYSTUPENIA].sort((a,b) => b.datum.localeCompare(a.datum));
+const fotky = v => Array.from({length:v.fotky?.pocet||0},(_,i)=>`${v.fotky.priecinok}/${i+1}.jpg`);
+const cover = v => fotky(v)[0] ? `style="background-image:url(${fotky(v)[0]})"` : "";
+
+const header = (mode, cur) => `
+  <header class="top ${mode}">
+    <a class="brand" href="#" aria-label="Zrnká radosti – domov"><h1>Zrnká radosti</h1>${mode==="over"?"<p>Folklórna skupina</p>":""}</a>
+    <nav aria-label="Hlavná navigácia"><ul>
+      <li><a href="#" ${cur==="home"?"aria-current=page":""}>Domov</a></li>
+      <li><a href="#vystupenia" ${cur==="list"?"aria-current=page":""}>Vystúpenia</a></li>
+      <li><a href="#o-nas" ${cur==="onas"?"aria-current=page":""}>O nás</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul></nav>
+  </header>`;
+
+function home(){
+  view.innerHTML = `
+  <main>
+    <div class="hero">
+      <div class="ph" role="img" aria-label="Folklórna skupina Zrnká radosti na pódiu"></div>
+      ${header("over","home")}
+      <a class="cue" href="#posledne">Posledné vystúpenia</a>
+    </div>
+    <section id="posledne">
+      <h2>Posledné vystúpenia</h2>
+      <div class="cards">${sorted.slice(0,3).map(v=>`
+        <a class="card" href="#clanok-${v.id}">
+          <div class="ph" ${cover(v)} role="img" aria-label="${esc(v.nazov)}"></div>
+          <h3>${esc(v.nazov)}</h3><small>${fmt(v.datum)}</small>
+        </a>`).join("")}</div>
+      <p class="more"><a href="#vystupenia">Všetky vystúpenia</a></p>
+    </section>
+    <section class="teaser">
+      <div class="about">
+        <div class="ph" role="img" aria-label="Skupina na pódiu"></div>
+        <div>
+          <h2>O nás</h2>
+          <p>${esc(ONAS.uvod)}</p>
+          <a class="btn" href="#o-nas">Viac o nás</a>
+        </div>
+      </div>
+    </section>
+  </main>`;
+}
+
+function onas(){
+  document.title = "O nás – Zrnká radosti";
+  view.innerHTML = header("solid","onas") + `
+  <main>
+    <div class="onas-intro">
+      <div><h1>${esc(ONAS.nadpis)}</h1><p>${esc(ONAS.uvod)}</p></div>
+      <div class="ph" role="img" aria-label="Skupina na pódiu"></div>
+    </div>
+    <div class="onas-story">${ONAS.pribeh.map(t=>`<p>${esc(t)}</p>`).join("")}</div>
+    <div class="robime">${ONAS.robime.map(r=>`<div><h3>${esc(r.nazov)}</h3><p>${esc(r.text)}</p></div>`).join("")}</div>
+    <section class="pridaj">
+      <h2>${esc(ONAS.pridajSa.nadpis)}</h2>
+      <p>${esc(ONAS.pridajSa.text)}</p>
+      <a class="btn" href="#kontakt">Napíšte nám</a>
+    </section>
+  </main>`;
+}
+
+function list(){
+  document.title = "Vystúpenia – Zrnká radosti";
+  view.innerHTML = header("solid","list") + `
+  <main class="page">
+    <h2>Všetky vystúpenia</h2>
+    <p class="lead">Od najnovších po najstaršie</p>
+    ${sorted.map(v=>`
+      <a class="row" href="#clanok-${v.id}">
+        <div class="ph" ${cover(v)} role="img" aria-label="${esc(v.nazov)}"></div>
+        <div><time datetime="${v.datum}">${fmt(v.datum)} · ${esc(v.miesto)}</time>
+        <h3>${esc(v.nazov)}</h3><p>${esc(v.popis)}</p></div>
+      </a>`).join("")}
+  </main>`;
+}
+
+let lbList=[], lbI=0;
+function post(v){
+  document.title = v.nazov + " – Zrnká radosti";
+  lbList = fotky(v);
+  view.innerHTML = header("solid","list") + `
+  <article class="post">
+    <a class="back" href="#vystupenia">Všetky vystúpenia</a>
+    <h1>${esc(v.nazov)}</h1>
+    <time datetime="${v.datum}">${fmt(v.datum)} · ${esc(v.miesto)}</time>
+    ${lbList.length?`<div class="ph cover" style="background-image:url(${lbList[0]})" role="img" aria-label="${esc(v.nazov)}"></div>`:""}
+    <div class="txt">${v.text.map(t=>`<p>${esc(t)}</p>`).join("")}</div>
+    ${lbList.length?`<h2>Fotky</h2><div class="gallery">${lbList.map((src,i)=>`
+      <button data-i="${i}" aria-label="Zväčšiť fotku ${i+1}"><img src="${src}" alt="${esc(v.nazov)} – fotka ${i+1}" loading="lazy"></button>`).join("")}</div>`:""}
+  </article>`;
+  view.querySelectorAll(".gallery button").forEach(b => b.onclick = () => openLB(+b.dataset.i));
+}
+
+function route(){
+  const h = decodeURIComponent(location.hash.slice(1));
+  const m = h.match(/^clanok-(.+)$/);
+  const v = m && VYSTUPENIA.find(x => x.id === m[1]);
+  if(h==="kontakt" && view.innerHTML){ document.getElementById("kontakt").scrollIntoView(); return; }
+  document.title = "Zrnká radosti – folklórna skupina";
+  if(v){ post(v); window.scrollTo(0,0); }
+  else if(h==="vystupenia"){ list(); window.scrollTo(0,0); }
+  else if(h==="o-nas"){ onas(); window.scrollTo(0,0); }
+  else {
+    home();
+    const el = h && document.getElementById(h);
+    el ? el.scrollIntoView() : window.scrollTo(0,0);
+  }
+}
+addEventListener("hashchange", route);
+route();
+
+/* kontakt */
+document.getElementById("copy").onclick = async e => {
+  try{ await navigator.clipboard.writeText("zrnkaradosti@proton.me"); e.target.textContent = "Skopírované"; }
+  catch{ e.target.textContent = "Skopírujte ručne"; }
+  setTimeout(() => e.target.textContent = "Kopírovať", 2200);
+};
+document.getElementById("kform").addEventListener("submit", e => {
+  e.preventDefault();
+  const f = new FormData(e.target);
+  const body = f.get("sprava") + "\n\n" + f.get("meno");
+  location.href = "mailto:zrnkaradosti@proton.me?subject=" + encodeURIComponent("Správa z webu Zrnká radosti") + "&body=" + encodeURIComponent(body);
+});
+
+/* zväčšená fotka */
+const lb = document.getElementById("lb"), lbImg = lb.querySelector("img"), lbC = lb.querySelector(".c");
+function showLB(){ lbImg.src = lbList[lbI]; lbC.textContent = (lbI+1) + " / " + lbList.length; }
+function openLB(i){ lbI=i; showLB(); lb.hidden=false; lb.querySelector(".x").focus(); }
+const closeLB = () => lb.hidden = true;
+const step = d => { lbI = (lbI+d+lbList.length)%lbList.length; showLB(); };
+lb.querySelector(".x").onclick = closeLB;
+lb.querySelector(".p").onclick = () => step(-1);
+lb.querySelector(".n").onclick = () => step(1);
+lb.addEventListener("click", e => { if(e.target===lb) closeLB(); });
+addEventListener("keydown", e => {
+  if(lb.hidden) return;
+  if(e.key==="Escape") closeLB();
+  if(e.key==="ArrowLeft") step(-1);
+  if(e.key==="ArrowRight") step(1);
+});
+</script>
+</body>
+</html>
