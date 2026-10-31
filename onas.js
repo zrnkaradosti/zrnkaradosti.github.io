@@ -1,9 +1,3 @@
-/* =====================================================================
-   TEXTY STRÁNKY „O NÁS“. Prepíš text medzi úvodzovkami, nič iné nemeň.
-   Každý odsek je text v úvodzovkách a za ním je čiarka.
-   Fotku vymeníš v img/o-nas.jpg.
-   Toto sú ukážkové texty, nahraď ich vlastnými.
-   ===================================================================== */
 const ONAS = {
   nadpis: "Sme Zrnká radosti",
   uvod: "Sme folklórna skupina, ktorá spieva, tancuje a udržiava živé ľudové tradície. Každé zrnko je maličké, ale spolu dáva radosť, ktorú chceme niesť ďalej.",
