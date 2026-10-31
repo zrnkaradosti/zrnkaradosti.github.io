@@ -37,7 +37,7 @@ nav a:hover,nav a[aria-current]{border-color:var(--ink)}
 
 /* úvodná fotka na celú obrazovku */
 .hero{position:relative;height:100vh;height:100svh;min-height:420px}
-.hero .ph{position:absolute;inset:0;background-image:linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,0) 30%,rgba(0,0,0,0) 70%,rgba(0,0,0,.55)),url(img/hero.jpeg);background-position:center 30%}
+.hero .ph{position:absolute;inset:0;background-image:linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,0) 30%,rgba(0,0,0,0) 70%,rgba(0,0,0,.55)),url(img/hero.jpg),url(img/hero.jpeg),url(img/hero.png),url(img/hero.webp);background-position:center 30%}
 .cue{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);z-index:5;font-size:12px;letter-spacing:.14em;text-transform:uppercase;text-align:center}
 .cue::after{content:"";display:block;width:1px;height:36px;background:var(--ink);margin:10px auto 0}
 
@@ -132,12 +132,51 @@ h2{font-family:var(--display);font-weight:300;font-size:clamp(28px,3.4vw,40px);l
 .k-bottom{max-width:1050px;margin:88px auto 0;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
 
 @media (max-width:760px){
-  .top{flex-direction:column}
-  nav ul{justify-content:flex-start;gap:16px}
+  body{font-size:15px}
+  section{padding:64px 6vw}
+  h2{margin-bottom:36px}
+
+  /* hlavička a úvodná fotka */
+  .top{flex-direction:column;gap:14px;padding:20px 6vw}
+  .brand p{margin-left:0}
+  nav ul{justify-content:flex-start;gap:6px 18px}
+  nav a{display:inline-block;padding:8px 0;font-size:12px}
+  .hero{min-height:480px}
+  .hero .ph{background-image:linear-gradient(180deg,rgba(0,0,0,.6),rgba(0,0,0,0) 38%,rgba(0,0,0,0) 62%,rgba(0,0,0,.6)),url(img/hero-mobile.jpg),url(img/hero-mobile.jpeg),url(img/hero-mobile.png),url(img/hero.jpg),url(img/hero.jpeg),url(img/hero.png),url(img/hero.webp);background-position:center}
+
+  /* posledné vystúpenia: posúvanie do strán */
+  .cards{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -6vw;padding:0 6vw 8px;-webkit-overflow-scrolling:touch}
+  .card{flex:0 0 74%;scroll-snap-align:center}
+
+  /* O nás a kontakt */
   .about,.onas-intro,.k-wrap{grid-template-columns:1fr}
-  .onas-intro .ph{max-width:360px}
-  .row{grid-template-columns:1fr;gap:14px}
-  section{padding:72px 6vw}
+  .about{gap:32px}
+  .onas-intro{padding:56px 6vw 32px;gap:36px}
+  .onas-intro .ph,.about .ph{max-width:320px;width:100%;margin:0 auto}
+  .onas-story{padding:32px 6vw 48px}
+  .robime{padding:0 6vw 64px}
+  .pridaj{padding:64px 6vw}
+  .kontakt{padding:72px 6vw 32px}
+  .k-wrap{gap:48px}
+  .k-copy{display:block;margin:12px 0 0}
+  .k-form input,.k-form textarea{font-size:16px}
+  .k-send{width:100%;justify-self:stretch;padding:16px}
+  .k-bottom{margin-top:56px}
+
+  /* zoznam vystúpení: malá fotka vedľa textu */
+  .page{padding:48px 6vw 72px}
+  .row{grid-template-columns:104px 1fr;gap:16px;padding:20px 0}
+  .row h3{font-size:24px;margin:2px 0 6px}
+  .row p{font-size:14px}
+
+  /* detail */
+  .post{padding:40px 6vw 72px}
+  .gallery{grid-template-columns:repeat(2,1fr);gap:8px}
+
+  /* zväčšená fotka */
+  #lb img{max-width:100vw;max-height:78vh}
+  #lb .p,#lb .n{top:auto;bottom:6px}
+  #lb .p{left:6px}#lb .n{right:6px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
