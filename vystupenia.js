@@ -1,21 +1,3 @@
-/* =====================================================================
-   VŠETKY VYSTÚPENIA SÚ TU.  Nový článok = skopíruj jeden blok { ... },
-   vlož ho do zoznamu (poradie je jedno, stránka ich zoradí podľa dátumu)
-   a zmeň hodnoty.
-
-   id       krátky názov do adresy: malé písmená, bez diakritiky, bez medzier
-            (napr. "dozinky-2027"). Musí byť v každom vystúpení iný.
-   nazov    nadpis vystúpenia
-   miesto   kde sa vystupovalo
-   datum    RRRR-MM-DD (napr. "2027-06-05")
-   popis    jedna krátka veta, zobrazí sa v zozname vystúpení
-   text     odseky článku; každý odsek je jeden text v úvodzovkách,
-            oddelený čiarkou
-   fotky    priecinok: kde ležia fotky, pocet: koľko ich je.
-            Fotky musia byť pomenované 1.jpg, 2.jpg, 3.jpg ... a ležať
-            v tom priečinku. Prvá fotka (1.jpg) je zároveň titulná.
-            Ak fotky nemáš, daj pocet: 0.
-   ===================================================================== */
 const VYSTUPENIA = [
   {
     id: "dni-zela",
