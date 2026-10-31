@@ -213,10 +213,10 @@ h2{font-family:var(--display);font-weight:300;font-size:clamp(28px,3.4vw,40px);l
       <h2>Napíšte nám</h2>
       <p class="k-lead">Chcete nás pozvať na vystúpenie, alebo sa k nám pridať? Ozvite sa, radi odpovieme.</p>
       <p class="k-label">E-mail</p>
-      <a class="k-mail" href="mailto:zrnkaradosti@proton.me">zrnkaradosti@proton.me</a><button class="k-copy" id="copy" type="button">Kopírovať</button>
+      <a class="k-mail" href="mailto:zrnka.radosti@gmail.com">zrnka.radosti@gmail.com</a><button class="k-copy" id="copy" type="button">Kopírovať</button>
       <div class="k-soc">
         <p class="k-label">Sociálne siete</p>
-        <p>@zrnkaradosti</p>
+        <p>@zrnka_radosti</p>
       </div>
     </div>
     <form class="k-form" id="kform">
@@ -361,7 +361,7 @@ route();
 
 /* kontakt */
 document.getElementById("copy").onclick = async e => {
-  try{ await navigator.clipboard.writeText("zrnkaradosti@proton.me"); e.target.textContent = "Skopírované"; }
+  try{ await navigator.clipboard.writeText("zrnka.radosti@gmail.come"); e.target.textContent = "Skopírované"; }
   catch{ e.target.textContent = "Skopírujte ručne"; }
   setTimeout(() => e.target.textContent = "Kopírovať", 2200);
 };
@@ -369,7 +369,7 @@ document.getElementById("kform").addEventListener("submit", e => {
   e.preventDefault();
   const f = new FormData(e.target);
   const body = f.get("sprava") + "\n\n" + f.get("meno");
-  location.href = "mailto:zrnkaradosti@proton.me?subject=" + encodeURIComponent("Správa z webu Zrnká radosti") + "&body=" + encodeURIComponent(body);
+  location.href = "mailto:zrnka.radosti@gmail.com?subject=" + encodeURIComponent("Správa z webu Zrnká radosti") + "&body=" + encodeURIComponent(body);
 });
 
 /* zväčšená fotka */
